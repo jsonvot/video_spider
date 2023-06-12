@@ -3,7 +3,7 @@ header('Access-Control-Allow-Origin:*');
 header('Content-type: application/json');
 ini_set('display_errors','off');
 error_reporting(E_ALL || ~E_NOTICE);
-require 'api/video_spider.php';
+require 'src/video_spider.php';
 $url = $_REQUEST['url'];
 $id = $_GET['id'];
 $vid = $_GET['vid'];
@@ -26,6 +26,9 @@ if (strpos($url,'pipix')){
     $arr = $api->lvzhou($url);
 } elseif (strpos($url, 'zuiyou')){
     $arr = $api->zuiyou($url);
+} elseif (strpos($url, 'xiaochuankeji')){
+    $arr = $api->zuiyou($url);
+    
 } elseif (strpos($url, 'bbq.bilibili')){
     $arr = $api->bbq($url);
 } elseif (strpos($url, 'kuaishou')){
